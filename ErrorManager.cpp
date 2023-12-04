@@ -26,8 +26,8 @@ void ErrorManager::setlogFile(string logfile){
 * @brief Функция для обработки ошибок. Аварийно завершает программу.
 * @param flag Определяет кодом завершения программы
 */
-void ErrorManager::ErrorManage(int flag){
-    exit(flag);
+void ErrorManager::ErrorManage(string info){
+    throw std::invalid_argument(info);
     
 }
 
@@ -47,7 +47,7 @@ void ErrorManager::SaveError(string flag, string info, int type1=0){
         // Записываем дату и время
         logFile << std::put_time(localTime, "%Y-%m-%d %H:%M:%S") << " ";
 
-        // Добавляем флаг (например, "ERROR")
+        // Добавляем флаг
         logFile << "  " << flag << "  ";
 
         // Записываем информацию об ошибке
@@ -56,7 +56,7 @@ void ErrorManager::SaveError(string flag, string info, int type1=0){
         // Закрываем файл
         logFile.close();
         }
-        ErrorManage(type1);
+        ErrorManage(info);
     }
     
     string logFileName = getlogFile();

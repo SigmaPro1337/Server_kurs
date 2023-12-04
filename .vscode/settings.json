@@ -52,6 +52,13 @@
         "chrono": "cpp",
         "ratio": "cpp",
         "sstream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "condition_variable": "cpp",
+        "csetjmp": "cpp",
+        "list": "cpp",
+        "mutex": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp"
     }
 }

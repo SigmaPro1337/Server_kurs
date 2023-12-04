@@ -8,6 +8,9 @@
 * @brief Сеттер для атрибута serverAddress
 */
 void Server::setAddress(string address1){
+    if (address1 != "127.0.0.1"){
+        errorManager.SaveError("критичная", "Ошибка в функции setAddress. Использование неразрешенных портов.", 7);
+    }
     serverAddress = address1;
 }
 
@@ -22,6 +25,9 @@ string Server::getAddress(){
 * @brief Сеттер для атрибута serverAddress
 */
 void Server::setPort(string port1){
+    if (stoi(port1) < 1000){
+        errorManager.SaveError("критичная", "Ошибка в функции setPort. Использование зарезервированных портов.", 6);
+    }
     serverPort = stoi(port1);
 }
 
@@ -72,12 +78,6 @@ uint32_t Server::multiplyVectors(const std::vector<uint32_t>& array) {
             if (result > (std::numeric_limits<uint32_t>::max() / element)) {
                 return 2147483647;
             }
-
-            // Проверка на переполнение вниз
-            if (result < (std::numeric_limits<uint32_t>::min() / element)) {
-                return -2147483648;
-            }
-
             result *= element;
         }
 

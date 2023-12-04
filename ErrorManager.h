@@ -23,7 +23,7 @@ class ErrorManager{
         string getlogFile();
         void setlogFile(string logfile);
 
-        void ErrorManage(int flag);
+        void ErrorManage(string info);
 
         void SaveError(string flag, string info, int type1);
 

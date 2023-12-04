@@ -50,6 +50,7 @@ class Server{
     private:
         string serverAddress;
         int serverPort;
+        ErrorManager errorManager;
 
 
 };
