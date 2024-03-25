@@ -1,0 +1,59 @@
+\hypertarget{classErrorManager}{}\doxysection{Класс Error\+Manager}
+\label{classErrorManager}\index{ErrorManager@{ErrorManager}}
+
+
+Класс обработки ошибок Error\+Manage.  
+
+
+
+
+{\ttfamily \#include $<$Error\+Manager.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classErrorManager_a34d955b1e7eb91e3c4a242ee4a01238a}\label{classErrorManager_a34d955b1e7eb91e3c4a242ee4a01238a}} 
+string \mbox{\hyperlink{classErrorManager_a34d955b1e7eb91e3c4a242ee4a01238a}{getlog\+File}} ()
+\begin{DoxyCompactList}\small\item\em Геттер для атрибута log\+File. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classErrorManager_a1923cf4a009b733a8bee7d25fad0041c}\label{classErrorManager_a1923cf4a009b733a8bee7d25fad0041c}} 
+void \mbox{\hyperlink{classErrorManager_a1923cf4a009b733a8bee7d25fad0041c}{setlog\+File}} (string logfile)
+\begin{DoxyCompactList}\small\item\em Сетттер для атрибута log\+File. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classErrorManager_a2e0dcb5b44a2a8c796dcc363d7009436}{Error\+Manage}} (string info)
+\begin{DoxyCompactList}\small\item\em Функция для обработки ошибок. Аварийно завершает программу \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classErrorManager_a258c8c978257919a97a80da72d43bb23}\label{classErrorManager_a258c8c978257919a97a80da72d43bb23}} 
+void \mbox{\hyperlink{classErrorManager_a258c8c978257919a97a80da72d43bb23}{Save\+Error}} (string flag, string info, int type1)
+\begin{DoxyCompactList}\small\item\em Функция записи ошибок в журнал записи ошибок \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс обработки ошибок Error\+Manage. 
+
+Менеджер вывода сообщений об ошибках 
+\begin{DoxyParams}{Аргументы}
+{\em log\+File} & Путь к журналу ошибок \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classErrorManager_a2e0dcb5b44a2a8c796dcc363d7009436}\label{classErrorManager_a2e0dcb5b44a2a8c796dcc363d7009436}} 
+\index{ErrorManager@{ErrorManager}!ErrorManage@{ErrorManage}}
+\index{ErrorManage@{ErrorManage}!ErrorManager@{ErrorManager}}
+\doxysubsubsection{\texorpdfstring{ErrorManage()}{ErrorManage()}}
+{\footnotesize\ttfamily void Error\+Manager\+::\+Error\+Manage (\begin{DoxyParamCaption}\item[{string}]{info }\end{DoxyParamCaption})}
+
+
+
+Функция для обработки ошибок. Аварийно завершает программу 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em info} & Описывает подробную информацию об ошибке \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ErrorManager_8h}{Error\+Manager.\+h}}\item 
+\mbox{\hyperlink{ErrorManager_8cpp}{Error\+Manager.\+cpp}}\end{DoxyCompactItemize}

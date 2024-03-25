@@ -1,0 +1,83 @@
+\hypertarget{classServer}{}\doxysection{Класс Server}
+\label{classServer}\index{Server@{Server}}
+
+
+Основной класс для взаимодействия клиента с сервером  
+
+
+
+
+{\ttfamily \#include $<$Server.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classServer_a80e5b63f1543eaaa90b4b9eafc46c9ad}{hande\+Client\+Interaction}} (string db, string lfile)
+\begin{DoxyCompactList}\small\item\em Основная функция для обслуживание клиентов \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classServer_a973545c75b7fdbbfc1d7782245b458be}{multiply\+Vectors}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&array)
+\begin{DoxyCompactList}\small\item\em Функция перемножения элементов вектора \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classServer_af86327d2fbb7ed0496e61292ec009757}\label{classServer_af86327d2fbb7ed0496e61292ec009757}} 
+void \mbox{\hyperlink{classServer_af86327d2fbb7ed0496e61292ec009757}{set\+Address}} (string address1)
+\begin{DoxyCompactList}\small\item\em Сеттер для атрибута server\+Address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classServer_a5fc3308c9c37c2664ea92505f61d8dae}\label{classServer_a5fc3308c9c37c2664ea92505f61d8dae}} 
+string \mbox{\hyperlink{classServer_a5fc3308c9c37c2664ea92505f61d8dae}{get\+Address}} ()
+\begin{DoxyCompactList}\small\item\em Геттер для атрибута server\+Address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classServer_a070d24c2c6a26d1ad7ea764dca3a0fdc}\label{classServer_a070d24c2c6a26d1ad7ea764dca3a0fdc}} 
+void \mbox{\hyperlink{classServer_a070d24c2c6a26d1ad7ea764dca3a0fdc}{set\+Port}} (string port1)
+\begin{DoxyCompactList}\small\item\em Сеттер для атрибута server\+Address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classServer_a52f64464f63a5220ef8eaa3962e69e5d}\label{classServer_a52f64464f63a5220ef8eaa3962e69e5d}} 
+int \mbox{\hyperlink{classServer_a52f64464f63a5220ef8eaa3962e69e5d}{get\+Port}} ()
+\begin{DoxyCompactList}\small\item\em Геттер для атрибута server\+Address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Основной класс для взаимодействия клиента с сервером 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em server\+Address} & адрес сервера \\
+\hline
+{\em server\+Port} & порт сервера \\
+\hline
+{\em error\+Manager} & Экземпляр класса \mbox{\hyperlink{classErrorManager}{Error\+Manager}}, ответственного за обработку ошибок. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classServer_a80e5b63f1543eaaa90b4b9eafc46c9ad}\label{classServer_a80e5b63f1543eaaa90b4b9eafc46c9ad}} 
+\index{Server@{Server}!handeClientInteraction@{handeClientInteraction}}
+\index{handeClientInteraction@{handeClientInteraction}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{handeClientInteraction()}{handeClientInteraction()}}
+{\footnotesize\ttfamily int Server\+::hande\+Client\+Interaction (\begin{DoxyParamCaption}\item[{string}]{db,  }\item[{string}]{lfile }\end{DoxyParamCaption})}
+
+
+
+Основная функция для обслуживание клиентов 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em db} & хранит в себе путь к файлу с БД клиентов \\
+\hline
+{\em log} & хранит в себе путь к журналу с записями об ошибках \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classServer_a973545c75b7fdbbfc1d7782245b458be}\label{classServer_a973545c75b7fdbbfc1d7782245b458be}} 
+\index{Server@{Server}!multiplyVectors@{multiplyVectors}}
+\index{multiplyVectors@{multiplyVectors}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{multiplyVectors()}{multiplyVectors()}}
+{\footnotesize\ttfamily uint32\+\_\+t Server\+::multiply\+Vectors (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{array }\end{DoxyParamCaption})}
+
+
+
+Функция перемножения элементов вектора 
+
+\begin{DoxyReturn}{Возвращает}
+возвращает произведение. При переполнении вверх должна возвращать 2$^\wedge$31-\/1, а при переполнении вниз -\/ -\/2$^\wedge$32. 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Server_8h}{Server.\+h}}\item 
+\mbox{\hyperlink{Server_8cpp}{Server.\+cpp}}\end{DoxyCompactItemize}

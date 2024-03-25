@@ -1,0 +1,77 @@
+\hypertarget{classUser}{}\doxysection{Класс User}
+\label{classUser}\index{User@{User}}
+
+
+Класс, содержащий информацию о текущем пользователе  
+
+
+
+
+{\ttfamily \#include $<$User.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classUser_a565eb4d366fa32c8cf400af99906769b}{Check\+Login}} (vector$<$ string $>$ Db\+\_\+login)
+\begin{DoxyCompactList}\small\item\em Функция проверки логина пользователя, который подключен \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUser_a364ded2fc17b2d14daa2940ae426d175}{Check\+Password}} (vector$<$ string $>$ Db\+\_\+password, vector$<$ string $>$ Db\+\_\+login, string SALT)
+\begin{DoxyCompactList}\small\item\em Функция проверки пароля подключенного клиента \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a97877915b39865bed907854fbb7508ac}\label{classUser_a97877915b39865bed907854fbb7508ac}} 
+string \mbox{\hyperlink{classUser_a97877915b39865bed907854fbb7508ac}{get\+Login}} ()
+\begin{DoxyCompactList}\small\item\em Геттер для атрибута login. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a71a34a201f1879160705ce584e7e71fa}\label{classUser_a71a34a201f1879160705ce584e7e71fa}} 
+void \mbox{\hyperlink{classUser_a71a34a201f1879160705ce584e7e71fa}{set\+Login}} (string login1)
+\begin{DoxyCompactList}\small\item\em Сеттер для атрибута login. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a090eb9ee354cc25b2e8240b714b39d64}\label{classUser_a090eb9ee354cc25b2e8240b714b39d64}} 
+string \mbox{\hyperlink{classUser_a090eb9ee354cc25b2e8240b714b39d64}{get\+Password}} ()
+\begin{DoxyCompactList}\small\item\em Геттер для атрибута password. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUser_a305d2f12176e64e381d2df02c6104f17}\label{classUser_a305d2f12176e64e381d2df02c6104f17}} 
+void \mbox{\hyperlink{classUser_a305d2f12176e64e381d2df02c6104f17}{set\+Password}} (string password1)
+\begin{DoxyCompactList}\small\item\em Сеттер для атрибута password. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс, содержащий информацию о текущем пользователе 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & логин клиента, который подключен \\
+\hline
+{\em password} & пароль клиента, который подключен \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classUser_a565eb4d366fa32c8cf400af99906769b}\label{classUser_a565eb4d366fa32c8cf400af99906769b}} 
+\index{User@{User}!CheckLogin@{CheckLogin}}
+\index{CheckLogin@{CheckLogin}!User@{User}}
+\doxysubsubsection{\texorpdfstring{CheckLogin()}{CheckLogin()}}
+{\footnotesize\ttfamily bool User\+::\+Check\+Login (\begin{DoxyParamCaption}\item[{vector$<$ string $>$}]{Db\+\_\+login }\end{DoxyParamCaption})}
+
+
+
+Функция проверки логина пользователя, который подключен 
+
+\begin{DoxyReturn}{Возвращает}
+Возвращает true, если логин подключенного клиента обнаружен в базе данных; в противном случае возвращает false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a364ded2fc17b2d14daa2940ae426d175}\label{classUser_a364ded2fc17b2d14daa2940ae426d175}} 
+\index{User@{User}!CheckPassword@{CheckPassword}}
+\index{CheckPassword@{CheckPassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{CheckPassword()}{CheckPassword()}}
+{\footnotesize\ttfamily bool User\+::\+Check\+Password (\begin{DoxyParamCaption}\item[{vector$<$ string $>$}]{Db\+\_\+password,  }\item[{vector$<$ string $>$}]{Db\+\_\+login,  }\item[{string}]{SALT }\end{DoxyParamCaption})}
+
+
+
+Функция проверки пароля подключенного клиента 
+
+\begin{DoxyReturn}{Возвращает}
+Возвращает true, если пароль клиента, подключенного в данный момент, соответствует паролю из базы данных; в противном случае возвращает false 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{User_8h}{User.\+h}}\item 
+\mbox{\hyperlink{User_8cpp}{User.\+cpp}}\end{DoxyCompactItemize}

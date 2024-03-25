@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Руководство по эксплуатации серверной программы: Класс User</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Руководство по эксплуатации серверной программы
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Приложение для взаимодействия с пользователями</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classUser-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс User</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс, содержащий информацию о текущем пользователе  
+ <a href="classUser.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="User_8h_source.html">User.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a565eb4d366fa32c8cf400af99906769b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#a565eb4d366fa32c8cf400af99906769b">CheckLogin</a> (vector&lt; string &gt; Db_login)</td></tr>
+<tr class="memdesc:a565eb4d366fa32c8cf400af99906769b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция проверки логина пользователя, который подключен  <a href="classUser.html#a565eb4d366fa32c8cf400af99906769b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a565eb4d366fa32c8cf400af99906769b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364ded2fc17b2d14daa2940ae426d175"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#a364ded2fc17b2d14daa2940ae426d175">CheckPassword</a> (vector&lt; string &gt; Db_password, vector&lt; string &gt; Db_login, string SALT)</td></tr>
+<tr class="memdesc:a364ded2fc17b2d14daa2940ae426d175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция проверки пароля подключенного клиента  <a href="classUser.html#a364ded2fc17b2d14daa2940ae426d175">Подробнее...</a><br /></td></tr>
+<tr class="separator:a364ded2fc17b2d14daa2940ae426d175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97877915b39865bed907854fbb7508ac"><td class="memItemLeft" align="right" valign="top"><a id="a97877915b39865bed907854fbb7508ac"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#a97877915b39865bed907854fbb7508ac">getLogin</a> ()</td></tr>
+<tr class="memdesc:a97877915b39865bed907854fbb7508ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Геттер для атрибута login. <br /></td></tr>
+<tr class="separator:a97877915b39865bed907854fbb7508ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a34a201f1879160705ce584e7e71fa"><td class="memItemLeft" align="right" valign="top"><a id="a71a34a201f1879160705ce584e7e71fa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#a71a34a201f1879160705ce584e7e71fa">setLogin</a> (string login1)</td></tr>
+<tr class="memdesc:a71a34a201f1879160705ce584e7e71fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сеттер для атрибута login. <br /></td></tr>
+<tr class="separator:a71a34a201f1879160705ce584e7e71fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a090eb9ee354cc25b2e8240b714b39d64"><td class="memItemLeft" align="right" valign="top"><a id="a090eb9ee354cc25b2e8240b714b39d64"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#a090eb9ee354cc25b2e8240b714b39d64">getPassword</a> ()</td></tr>
+<tr class="memdesc:a090eb9ee354cc25b2e8240b714b39d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Геттер для атрибута password. <br /></td></tr>
+<tr class="separator:a090eb9ee354cc25b2e8240b714b39d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a305d2f12176e64e381d2df02c6104f17"><td class="memItemLeft" align="right" valign="top"><a id="a305d2f12176e64e381d2df02c6104f17"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#a305d2f12176e64e381d2df02c6104f17">setPassword</a> (string password1)</td></tr>
+<tr class="memdesc:a305d2f12176e64e381d2df02c6104f17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сеттер для атрибута password. <br /></td></tr>
+<tr class="separator:a305d2f12176e64e381d2df02c6104f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс, содержащий информацию о текущем пользователе </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>логин клиента, который подключен </td></tr>
+    <tr><td class="paramname">password</td><td>пароль клиента, который подключен </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a565eb4d366fa32c8cf400af99906769b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a565eb4d366fa32c8cf400af99906769b">&#9670;&nbsp;</a></span>CheckLogin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool User::CheckLogin </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>Db_login</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция проверки логина пользователя, который подключен </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает true, если логин подключенного клиента обнаружен в базе данных; в противном случае возвращает false </dd></dl>
+
+</div>
+</div>
+<a id="a364ded2fc17b2d14daa2940ae426d175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a364ded2fc17b2d14daa2940ae426d175">&#9670;&nbsp;</a></span>CheckPassword()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool User::CheckPassword </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>Db_password</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>Db_login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>SALT</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция проверки пароля подключенного клиента </p>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает true, если пароль клиента, подключенного в данный момент, соответствует паролю из базы данных; в противном случае возвращает false </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="User_8h_source.html">User.h</a></li>
+<li><a class="el" href="User_8cpp.html">User.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,56 @@
+\hypertarget{classUserDataBase}{}\doxysection{Класс User\+Data\+Base}
+\label{classUserDataBase}\index{UserDataBase@{UserDataBase}}
+
+
+Класс, предназначенный для извлечения информации из базы данных клиентов.  
+
+
+
+
+{\ttfamily \#include $<$User\+Data\+Base.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+pair$<$ vector$<$ string $>$, vector$<$ string $>$ $>$ \mbox{\hyperlink{classUserDataBase_ac1ecce5226b06fd0623e6a7adae9c94d}{get\+Client\+Credentials}} ()
+\begin{DoxyCompactList}\small\item\em Функция для получения БД клиентов \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserDataBase_a553335df2b9eca5e5ee00c65a4b4bb26}\label{classUserDataBase_a553335df2b9eca5e5ee00c65a4b4bb26}} 
+string \mbox{\hyperlink{classUserDataBase_a553335df2b9eca5e5ee00c65a4b4bb26}{get\+Client\+Data\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Геттер для атрибута db. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classUserDataBase_af99e6c2b6e53894b7c00c52034ef7029}\label{classUserDataBase_af99e6c2b6e53894b7c00c52034ef7029}} 
+void \mbox{\hyperlink{classUserDataBase_af99e6c2b6e53894b7c00c52034ef7029}{set\+Client\+Data\+Base}} (string db)
+\begin{DoxyCompactList}\small\item\em Сеттер для атрибута db. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс, предназначенный для извлечения информации из базы данных клиентов. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+Data\+Base} & Путь к файлу базы данных клиентов \\
+\hline
+{\em error\+Manager} & Экземпляр класса \mbox{\hyperlink{classErrorManager}{Error\+Manager}}, ответственного за обработку ошибок. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classUserDataBase_ac1ecce5226b06fd0623e6a7adae9c94d}\label{classUserDataBase_ac1ecce5226b06fd0623e6a7adae9c94d}} 
+\index{UserDataBase@{UserDataBase}!getClientCredentials@{getClientCredentials}}
+\index{getClientCredentials@{getClientCredentials}!UserDataBase@{UserDataBase}}
+\doxysubsubsection{\texorpdfstring{getClientCredentials()}{getClientCredentials()}}
+{\footnotesize\ttfamily pair$<$ vector$<$ string $>$, vector$<$ string $>$ $>$ User\+Data\+Base\+::get\+Client\+Credentials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция для получения БД клиентов 
+
+\begin{DoxyReturn}{Возвращает}
+Возращает векторы логинов и паролей соответственно first\+Vector, second\+Vector 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{UserDataBase_8h}{User\+Data\+Base.\+h}}\item 
+\mbox{\hyperlink{UserDataBase_8cpp}{User\+Data\+Base.\+cpp}}\end{DoxyCompactItemize}
