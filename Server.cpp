@@ -8,9 +8,6 @@
 * @brief Сеттер для атрибута serverAddress
 */
 void Server::setAddress(string address1){
-    if (address1 != "127.0.0.1"){
-        errorManager.SaveError("критичная", "Ошибка в функции setAddress. Использование неразрешенных портов.", 7);
-    }
     serverAddress = address1;
 }
 
@@ -26,7 +23,7 @@ string Server::getAddress(){
 */
 void Server::setPort(string port1){
     if (stoi(port1) < 1000){
-        errorManager.SaveError("критичная", "Ошибка в функции setPort. Использование зарезервированных портов.", 6);
+        Err.SaveError("критичная", "Ошибка в функции setPort. Использование зарезервированных портов.", 6);
     }
     serverPort = stoi(port1);
 }
@@ -73,15 +70,15 @@ uint32_t Server::multiplyVectors(const std::vector<uint32_t>& array) {
 
     uint32_t result = 1;
 
-        for (const auto& element : array) {
-            // Проверка на переполнение вверх
-            if (result > (std::numeric_limits<uint32_t>::max() / element)) {
-                return 2147483647;
-            }
-            result *= element;
+    for (const auto& element : array) {
+        // Проверка на переполнение вверх
+        if (result > (std::numeric_limits<uint32_t>::max() / element)) {
+            return 2147483647;
         }
+        result *= element;
+    }
 
-        return result;
+    return result;
 }
 
 /**
@@ -91,11 +88,10 @@ uint32_t Server::multiplyVectors(const std::vector<uint32_t>& array) {
 */
 int Server::handeClientInteraction(string db, string lfile){
     
-    // Получение пути к файлу для записи ошибок
-    ErrorManager Err;
+    // Установка пути к файлу для записи ошибок
     Err.setlogFile(lfile);
 
-    // Получение пути к файлу с БД клиентов
+    // Установка пути к файлу с БД клиентов
     UserDataBase DB;
     DB.setClientDataBase(db);
     auto result = DB.getClientCredentials();
@@ -111,7 +107,7 @@ int Server::handeClientInteraction(string db, string lfile){
     // Настраиваем адрес сервера
     struct sockaddr_in serverAddress;
     serverAddress.sin_family = AF_INET;
-     serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1");
+    serverAddress.sin_addr.s_addr = inet_addr(getAddress().c_str());
     serverAddress.sin_port = htons(getPort());
 
     // Привязка сокета к адресу
@@ -126,9 +122,9 @@ int Server::handeClientInteraction(string db, string lfile){
         Err.SaveError("критичная", "Ошибка в функции handeClientInteraction. Ошибка при начале прослушивания порта.", 6);
     }
 
-    std::cout << "\nСервер запущен на адресе 127.0.0.1 и порту " << getPort() << std::endl;
+    cout << "\nСервер запущен на адресе " << getAddress() << " и порту " << getPort() << endl;
 
-     while (true) {
+    while (true) {
         // Принимаем соединение от клиента
         struct sockaddr_in clientAddress;
         socklen_t clientAddressLength = sizeof(clientAddress);
@@ -138,14 +134,14 @@ int Server::handeClientInteraction(string db, string lfile){
             Err.SaveError("некритичная", "Ошибка в функции handeClientInteraction. Ошибка при принятии соединения.", 0);
         }
 
-        cout << "CONNECTION CLIENT: OK" << endl;
-
+        //cout << "CONNECTION CLIENT: OK" << endl;
 
         char buf[1024];
         int bytes_read;
 
         // Получение от клиента логина
         bytes_read = recv(clientSocket, buf, sizeof(buf), 0);
+
         buf[bytes_read] = '\0';
         User user;
         user.setLogin(string(buf));
@@ -155,10 +151,11 @@ int Server::handeClientInteraction(string db, string lfile){
         if(!user.CheckLogin(vlogin)){
             
             s1 = "ERR";
-            cout << "AUTHENTICATION: ERR" << endl;
-            cout << "CLOSE SOCKET CLIENT" << endl;
             strcpy(buf,s1.c_str());
             send(clientSocket, buf, s1.length(), 0);
+            //cout << "AUTHENTICATION: ERR" << endl;
+            //cout << "CLOSE SOCKET CLIENT" << endl;
+            
 
             close(clientSocket);
             Err.SaveError("некритичная", "Ошибка в функции handeClientInteraction. Ошибка аутентификации", 0);
@@ -167,7 +164,7 @@ int Server::handeClientInteraction(string db, string lfile){
 
         // Отправка SALT16 клиенту
         string s2 = generateSalt();
-        cout << "SALT16: " << s2 << endl;
+        
         strcpy(buf, s2.c_str());
         send(clientSocket, buf, s2.length(), 0);
 
@@ -180,61 +177,50 @@ int Server::handeClientInteraction(string db, string lfile){
         string s3;
         // Проверка пароля
         if(!user.CheckPassword(vpassword, vlogin, s2)){
-            
-            s3 = "ERR";
-            cout << "AUTHENTICATION: ERR" << endl;
-            strcpy(buf,s3.c_str());
+            //cout << "AUTHENTICATION: ERR" << endl;
+            strcpy(buf, s3.c_str());
             send(clientSocket, buf, s3.length(), 0);
-
+            
             close(clientSocket);
             Err.SaveError("некритичная", "Ошибка в функции handeClientInteraction. Ошибка аутентификации", 0);
             continue;
         }
 
         string s4 = "OK";
-        cout << "AUTHENTICATION: OK" << endl;
+        //cout << "AUTHENTICATION: OK" << endl;
         strcpy(buf,s4.c_str());
         send(clientSocket, buf, s4.length(), 0);
 
 
-        // Получение веторов
+        // Получение векторов
 
         // Получение количества векторов
         uint32_t col = 0;
         recv(clientSocket, &col, sizeof(col), 0);
-        cout << "col: " << col << endl;
 
-        for(auto i = 0; i < col; i++){
+        for(int i = 0; i < col; i++){
 
             // Получение длины вектора
             uint32_t vec_len = 0;
             recv(clientSocket, &vec_len, sizeof(vec_len), 0);
-            cout << "vec_len: " << vec_len << endl;
-
+            
             // Получение вектора
             uint32_t arr[vec_len] = {0};
 
             recv(clientSocket, &arr, sizeof(arr), 0);
 
             vector<uint32_t> vec;
-            for (size_t j = 0; j < vec_len; j++) {
-            vec.push_back(arr[j]);
-            cout << vec[j] << " ";
-            }
-            cout << "\n";
+            for (size_t j = 0; j < vec_len; j++) 
+                vec.push_back(arr[j]);
 
             // Подсчет результатов
             uint32_t res = multiplyVectors(vec);
-            cout << "res: " << res << endl;
 
             // Отправка результата
-            send(clientSocket, &res, sizeof(res), 0);
-
-
+            send(clientSocket, &res, sizeof(res), 0);          
         }
 
         // Закрываем соединение с клиентом
-        cout << "CLOSE SOCKET CLIENT\n" << endl;
         close(clientSocket);
     }
 

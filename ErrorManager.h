@@ -15,8 +15,10 @@
 
 using namespace std;
 
-/** @brief Класс обработки ошибок ErrorManager
+/**
+* @brief Класс обработки ошибок ErrorManage
 * @details Менеджер вывода сообщений об ошибках
+* @param logFile Путь к журналу ошибок
 */
 class ErrorManager{
     public:

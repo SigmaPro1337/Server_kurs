@@ -1,21 +1,28 @@
+/** 
+* @file main.cpp
+*/
 #include <getopt.h>
 #include "Server.h"
 #pragma one
 
 using namespace std;
-
+/**
+* @brief Функция для получения инструкции по использованию программы
+*/
 void help(){
     cout << "Это программа сервер для взаимодействия с клиентом\n" << endl;
-    cout << "Необходимо ввести парметры командной строки" << endl;
-    cout << "парметр -h или --help для справки " << endl;
-    cout << "параметр -i или --ip сетевой адрес сервера обязательный" << endl;
-    cout << "параметр -p или --port порт серевера необязательный" << endl;
-    cout << "параметр -d или --database файл с БД клиентов" << endl;
-    cout << "параметр -l или --logfile файл-аутентификации необязательный" << endl;
+    cout << "Парметры командной строки" << endl;
+    cout << "-h для справки" << endl;
+    cout << "Необязятельные параметры:" << endl;
+    cout << "-i сетевой адрес сервера" << endl;
+    cout << "-p порт сервера" << endl;
+    cout << "-d файл с БД клиентов" << endl;
+    cout << "-l лог-файл" << endl;
+    cout << "Пример запуска со значениями по умолчанию: ./Server -i127.0.0.1 -p33333 -d/etc/vcalc.conf -l./var/log/vcalc.log" << endl;
 }
-/** 
-* @file main.cpp
-* @brief Главный модуль программы для получения параметров командной строки
+
+/**
+* @brief Функция для извлечения параметров командной строки от оператора
 */
 int main (int argc, char *argv[]){
 
@@ -45,16 +52,18 @@ int main (int argc, char *argv[]){
                 adds = string(optarg);
             }
             else{
-                adds = string("127.0.0.1");
+                cerr << "Error: Invalid option\n";
+                return 2;
             }
             break;
             
         case 'p':
-            if (optarg != nullptr) {
+            if (optarg != nullptr) { 
                 p = string(optarg);
             }
             else{
-                p = string("33333");
+                cerr << "Error: Invalid option\n";
+                return 2;
             }
             break;
         
@@ -63,7 +72,8 @@ int main (int argc, char *argv[]){
                 db = string(optarg);
             }
             else{
-                db = string("DB_client.conf");
+                cerr << "Error: Invalid option\n";
+                return 2;
             }
             break;
         
@@ -72,20 +82,38 @@ int main (int argc, char *argv[]){
                 lfile = string(optarg);
             }
             else{
-                lfile = string("log.conf");
+                cerr << "Error: Invalid option\n";
+                return 2;
             }
             break;
             
         case 'h':
-            help();
-            
+            help();        
             return 1;
+
         default:
             // Некорректная опция
             cerr << "Error: Invalid option\n";
             help();
             return 2;
         }
+    }
+    
+    if(adds == ""){
+        adds = string("127.0.0.1");
+        help();
+    }
+    if (p == "" )
+    {
+        p = string("33333"); 
+    }
+    if (db == "")
+    {
+        db = string("./etc/vcalc.conf");
+    }
+    if (lfile == "")
+    {
+        lfile = string("./var/log/vcalc.log"); 
     }
 
 	Server NewServer;

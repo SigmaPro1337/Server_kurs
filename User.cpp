@@ -15,7 +15,6 @@ string User::getLogin(){
 */
 void User::setLogin(string login1){
     login = login1;
-
 }
 
 /**
@@ -33,12 +32,13 @@ void User::setPassword(string password1){
 }
 
 
+
 /**
-* @brief Функция для проверки логина пользователя
-*@return 1 - в случае успешной идентификации, 0 - в обратном случае
+* @brief Функция проверки логина пользователя, который подключен
+* @return Возвращает true, если логин подключенного клиента обнаружен в базе данных; в противном случае возвращает false
 */
 bool User::CheckLogin(vector<string> Db_login){
-    for (size_t i = 0; i < Db_login.size(); ++i) {
+    for (size_t i = 0; i < Db_login.size(); i++) {
         if (Db_login[i] == login){
             return 1;
         }
@@ -48,16 +48,19 @@ bool User::CheckLogin(vector<string> Db_login){
     
 }
 
-
+/**
+* @brief Функция проверки пароля подключенного клиента
+* @return Возвращает true, если пароль клиента, подключенного в данный момент, соответствует паролю из базы данных; в противном случае возвращает false
+*/
 bool User::CheckPassword(vector<string> Db_password, vector<string> Db_login, string SALT){
-    int t = 0;
+    int user_idx = 0;
     for (size_t i = 0; i < Db_login.size(); ++i) {
         if (Db_login[i] == login){
-            t = i;
+            user_idx = i;
         }
     }
     
-    string hash = SALT + Db_password[t];
+    string hash = SALT + Db_password[user_idx];
     string HASHMD5 = MD5_hash(hash);
     
     if (HASHMD5 == password){

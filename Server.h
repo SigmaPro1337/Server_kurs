@@ -36,6 +36,7 @@ using namespace std;
 * @brief Основной класс для взаимодействия клиента с сервером
 * @param serverAddress адрес сервера
 * @param serverPort порт сервера
+* @param errorManager Экземпляр класса ErrorManager, ответственного за обработку ошибок.
 */
 class Server{
     public:
@@ -50,7 +51,5 @@ class Server{
     private:
         string serverAddress;
         int serverPort;
-        ErrorManager errorManager;
-
-
+        ErrorManager Err;
 };

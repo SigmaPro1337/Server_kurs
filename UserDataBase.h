@@ -16,6 +16,11 @@
 #include "ErrorManager.h"
 
 using namespace std;
+/**
+* @brief Класс, предназначенный для извлечения информации из базы данных клиентов.
+* @param clientDataBase Путь к файлу базы данных клиентов
+* @param errorManager Экземпляр класса ErrorManager, ответственного за обработку ошибок.
+*/
 class UserDataBase{
     public:
         pair<vector<string>, vector<string>> getClientCredentials();

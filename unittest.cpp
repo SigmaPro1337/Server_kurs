@@ -16,7 +16,7 @@ struct User_fix {
 
     // Модуль User.h
 
-    // Ошибка идентификации
+    // Удачная идентификации
     TEST_FIXTURE(User_fix, SuccessfulIdentificatio){
         p->setLogin("user");
         auto resultat = p->CheckLogin({"user", "ivanov", "user0"});
@@ -24,7 +24,6 @@ struct User_fix {
         UNITTEST_CHECK_EQUAL(resultat, 1);
     }
 
-    
     // Ошибка идентификации
     TEST_FIXTURE(User_fix, IdentificationError){
         p->setLogin("user");
@@ -32,6 +31,7 @@ struct User_fix {
         // Проверяем результат
         UNITTEST_CHECK_EQUAL(resultat, 0);
     }
+
     // Удачная аутентификация
     TEST_FIXTURE(User_fix, SuccessfulAuthentication){
         p->setLogin("user");

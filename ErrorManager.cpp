@@ -23,12 +23,11 @@ void ErrorManager::setlogFile(string logfile){
 
 
 /**
-* @brief Функция для обработки ошибок. Аварийно завершает программу.
-* @param flag Определяет кодом завершения программы
+* @brief Функция для обработки ошибок. Аварийно завершает программу
+* @param info Описывает подробную информацию об ошибке
 */
 void ErrorManager::ErrorManage(string info){
     throw std::invalid_argument(info);
-    
 }
 
 /**
@@ -39,33 +38,13 @@ void ErrorManager::SaveError(string flag, string info, int type1=0){
     time_t currentTime = time(nullptr);
     tm* localTime = localtime(&currentTime);
 
-    if (flag == "критичная"){
-
-        string logFileName = "log.conf";
-        std::ofstream logFile(logFileName);
-        if (logFile.is_open()) {
-        // Записываем дату и время
-        logFile << std::put_time(localTime, "%Y-%m-%d %H:%M:%S") << " ";
-
-        // Добавляем флаг
-        logFile << "  " << flag << "  ";
-
-        // Записываем информацию об ошибке
-        logFile << info << std::endl;
-
-        // Закрываем файл
-        logFile.close();
-        }
-        ErrorManage(info);
-    }
-    
     string logFileName = getlogFile();
     std::ofstream logFile(logFileName, std::ios::app);
     if (logFile.is_open()) {
         // Записываем дату и время
         logFile << std::put_time(localTime, "%Y-%m-%d %H:%M:%S") << " ";
 
-        // Добавляем флаг (например, "ERROR")
+        // Добавляем флаг
         logFile << flag << " ";
 
         // Записываем информацию об ошибке
@@ -74,5 +53,8 @@ void ErrorManager::SaveError(string flag, string info, int type1=0){
         // Закрываем файл
         logFile.close();
     }
-    
+    if (flag == "критичная"){
+        ErrorManage(info);
     }
+    
+}

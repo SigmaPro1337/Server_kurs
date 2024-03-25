@@ -12,6 +12,12 @@
 #include <iostream>
 #include "./md5/md5.h"
 using namespace std;
+
+/**
+* @brief Класс, содержащий информацию о текущем пользователе
+* @param login логин клиента, который подключен
+* @param password пароль клиента, который подключен
+*/
 class User{
     private:
         string login;
